@@ -31,12 +31,9 @@ def pytest_configure(config):
     config._inicache["rp_endpoint"] = "http://localhost:8080"
     config._inicache["rp_project"] = "superadmin_personal"
 
-    if marker == "gui_test":
-        config._inicache["rp_launch"] = "gui_test"
-    elif marker == "api_test":
-        config._inicache["rp_launch"] = "api_test"
-    elif marker == "random":
-        config._inicache["rp_rerun"] = "True"
-        config._inicache["rp_launch"] = "random"
+    if marker == "first_suit":
+        config._inicache["rp_launch"] = "first-suit"
+    elif marker == "second_suit":
+        config._inicache["rp_launch"] = "second-suit"
     else:
-        config._inicache["rp_launch"] = "not_specified"
+        raise ValueError("Suit is not specified. Please specify suit using -m")
