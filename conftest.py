@@ -35,5 +35,7 @@ def pytest_configure(config):
         config._inicache["rp_launch"] = "first-suit"
     elif marker == "second_suit":
         config._inicache["rp_launch"] = "second-suit"
+    elif marker == "debug":  # Or you can't run simple pytest --markers
+        config._inicache["rp_launch"] = "debug"
     else:
         raise ValueError("Suit is not specified. Please specify suit using -m")
